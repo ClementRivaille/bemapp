@@ -1,3 +1,2 @@
-angular.module('bemapp').controller('appController', [function() {
-	console.log('sigh… yes, hi.');
+angular.module('themeaning').controller('appController', [function() {
 }]);

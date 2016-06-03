@@ -1,8 +1,8 @@
 {
-  "name": "bemapp",
+  "name": "the-meaning",
   "version": "0.0.1",
   "description": "BEM experimentation module",
-  "main": "dist/bemapp.js",
+  "main": "dist/the-meaning.js",
   "author": "rivaille-c",
   "dependencies": {
     "cibuild-utils": "^0.2.1",
@@ -21,6 +21,8 @@
     "jshint": "^2.9.2",
     "lodash": "^4.13.1",
     "main-bower-files": "^2.13.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "stylelint": "^6.5.1",
+    "stylelint-config-standard": "^8.0.0"
   }
 }

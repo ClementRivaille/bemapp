@@ -1,6 +1,6 @@
 {
-  "name": "bemapp",
-  "main": "dist/bemapp.js",
+  "name": "the-meaning",
+  "main": "dist/the-meaning.js",
   "version": "0.0.1",
   "authors": [
     "rivaille-c <rivaille-c@mgdis.fr>"

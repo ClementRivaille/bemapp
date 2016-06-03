@@ -1,11 +1,11 @@
-var app = angular.module('bemapp', ['ui.router']);
+var app = angular.module('themeaning', ['ui.router', 'themeaning.templates']);
 
 app.config(['$stateProvider', function($stateProvider) {
   'use strict';
 
   $stateProvider.state('main', {
     url: '/',
-    template: '<div>Hello world!&nbsp;<i class="fa fa-check"></i></div>',
+    templateUrl: 'main.html',
     controller: 'mainCtrl'
   });
 }]);

@@ -22,7 +22,7 @@ var less = require('gulp-less');
 var directivesPaths = ['app/modules/common/directives.js', 'app/modules/common/directives/**/*.js'];
 var servicesPaths = ['app/modules/common/services.js', 'modules/common/services/**/*.js'];
 // var filtersPaths = ['app/modules/common/filters.js', 'app/modules/common/filters/**/*.js'];
-var bemappPaths = _.union(['app/app.js', 'app/src/**/*.js', 'app/modules/common/common.js'], directivesPaths, servicesPaths);
+var theMeaningPaths = _.union(['app/app.js', 'app/src/**/*.js', 'app/modules/common/common.js'], directivesPaths, servicesPaths);
 
 /* -------------------
 CLEAN AND LINT
@@ -34,7 +34,7 @@ gulp.task('clean', function() {
 
 // Check JS files code quality
 gulp.task('lint', function() {
-  return gulp.src(bemappPaths)
+  return gulp.src(theMeaningPaths)
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'));
@@ -50,7 +50,7 @@ gulp.task('templates-app', function() {
   return gulp.src(['app/src/**/*.html', 'app/modules/**/*.html'])
     .pipe(templateCache('templates.js', {
       root: '',
-      module: 'bemapp.templates',
+      module: 'themeaning.templates',
       standalone: true
     }))
     .pipe(gulp.dest('./build'))
@@ -80,12 +80,12 @@ JAVASCRIPT SOURCES
 // Concat sources
 gulp.task('js-app', function() {
   'use strict';
-  return gulp.src(bemappPaths, {
+  return gulp.src(theMeaningPaths, {
       base: '.',
       allowEmpty: true
     })
     .pipe(plumber())
-    .pipe(concat('bemapp.js'))
+    .pipe(concat('the-meaning.js'))
     .pipe(gulp.dest('./build'))
     .pipe(livereload());
 });
@@ -103,7 +103,7 @@ gulp.task('js', gulp.parallel('js-app', 'js-vendor'));
 
 // Inject JS scripts tags in HTML pages
 gulp.task('inject', function() {
-  var sources = gulp.src(['build/vendor.js', 'build/bemapp.js'], {
+  var sources = gulp.src(['build/vendor.js', 'build/the-meaning.js', 'build/templates.js'], {
     read: false
   });
   return gulp.src('app/index.html')
@@ -121,7 +121,7 @@ STYLES
 // Build less styles of the portal
 gulp.task('less', function() {
   'use strict';
-  return gulp.src('app/resources/styles/*.less')
+  return gulp.src('app/resources/styles/less/*.less')
     .pipe(less({
       paths: [path.join(__dirname, './app/resources/styles')]
     }))
@@ -131,7 +131,7 @@ gulp.task('less', function() {
 
 gulp.task('fonts', function() {
   'use-strict';
-  return gulp.src(['bower_components/**/fonts/*'])
+  return gulp.src(['bower_components/**/fonts/*', 'app/resources/fonts/*'])
     .pipe(rename({dirname: ''}))
     .pipe(gulp.dest('./build/resources/fonts'));
 });
@@ -210,10 +210,10 @@ gulp.task('default', gulp.series([
 
 // Copy the built files that contain the core of app
 gulp.task('dist-copy', function() {
-  gulp.src(directivesPaths).pipe(concat('bemapp-directives.js')).pipe(gulp.dest('dist/'));
-  gulp.src(servicesPaths).pipe(concat('bemapp-services.js')).pipe(gulp.dest('dist/'));
-  // gulp.src(filtersPaths).pipe(concat('bemapp-filters.js')).pipe(gulp.dest('dist/'));
-  gulp.src(bemappPaths).pipe(concat('bemapp.js')).pipe(gulp.dest('dist/'));
+  gulp.src(directivesPaths).pipe(concat('the-meaning-directives.js')).pipe(gulp.dest('dist/'));
+  gulp.src(servicesPaths).pipe(concat('the-meaning-services.js')).pipe(gulp.dest('dist/'));
+  // gulp.src(filtersPaths).pipe(concat('the-meaning-filters.js')).pipe(gulp.dest('dist/'));
+  gulp.src(theMeaningPaths).pipe(concat('the-meaning.js')).pipe(gulp.dest('dist/'));
 
   gulp.src(['app/resources/**/*']).pipe(gulp.dest('dist/resources'));
   cibuild.writeFileVersion('./dist/version.json');
