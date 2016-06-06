@@ -1,11 +1,11 @@
-var app = angular.module('themeaning', ['ui.router', 'themeaning.templates']);
+var app = angular.module('themeaning', ['ui.router', 'themeaning.directives', 'themeaning.services', 'themeaning.templates']);
 
 app.config(['$stateProvider', function($stateProvider) {
   'use strict';
 
   $stateProvider.state('main', {
     url: '/',
-    templateUrl: 'main.html',
+    templateUrl: 'src/main.html',
     controller: 'mainCtrl'
   });
 }]);
@@ -17,7 +17,5 @@ app.controller('mainCtrl', ['$scope', '$log',
     $scope.log = function(msg) {
       $log.info(msg);
     };
-
-    $log.info('Hello again!');
   }
 ]);

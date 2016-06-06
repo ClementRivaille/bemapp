@@ -19,10 +19,10 @@ var less = require('gulp-less');
 /* -------------------
  JS sources Paths
  ------------------ */
-var directivesPaths = ['app/modules/common/directives.js', 'app/modules/common/directives/**/*.js'];
-var servicesPaths = ['app/modules/common/services.js', 'modules/common/services/**/*.js'];
+var directivesPaths = ['app/modules/**/directives.js', 'app/modules/**/directives/**/*.js'];
+var servicesPaths = ['app/modules/**/services.js', 'modules/**/services/**/*.js'];
 // var filtersPaths = ['app/modules/common/filters.js', 'app/modules/common/filters/**/*.js'];
-var theMeaningPaths = _.union(['app/app.js', 'app/src/**/*.js', 'app/modules/common/common.js'], directivesPaths, servicesPaths);
+var theMeaningPaths = _.union(['app/app.js', 'app/src/**/*.js'], directivesPaths, servicesPaths);
 
 /* -------------------
 CLEAN AND LINT
@@ -47,7 +47,7 @@ TEMPLATES
 // Concatenate all angular templates into a JS file that append them into angular template cache
 gulp.task('templates-app', function() {
   'use strict';
-  return gulp.src(['app/src/**/*.html', 'app/modules/**/*.html'])
+  return gulp.src(['app/**/*.html'])
     .pipe(templateCache('templates.js', {
       root: '',
       module: 'themeaning.templates',
