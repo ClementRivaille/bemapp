@@ -1,4 +1,4 @@
-angular.module('themeaning.directives').directive('meaningLetter', ['$timeout',
+angular.module('themeaning.directives').directive('meaningLetter', ['$interval',
   function($interval) {
     return {
       restric: 'EA',
@@ -11,14 +11,20 @@ angular.module('themeaning.directives').directive('meaningLetter', ['$timeout',
         interval: '=?'
       },
       link: function(scope, element) {
+        var fontSwitch;
         if (scope.fonts && scope.fonts.length > 0) {
-          var fontSwitch = $interval(function() {
-            scope.$apply(function() {
-              var fontIndex = Math.floor(Math.random() * scope.fonts.length);
-              scope.font = scope.fonts[fontIndex];
-            });
-          }, 500);
+          fontSwitch = $interval(function() {
+            var fontIndex = Math.floor(Math.random() * scope.fonts.length);
+            scope.font = scope.fonts[fontIndex];
+          }, interval);
         }
+
+        // End loop
+        scope.$on('$destroy', function() {
+          if (angular.isDefined(fontSwitch)) {
+            $interval.cancel(fontSwitch);
+          }
+        });
       }
     };
   }
