@@ -16,7 +16,7 @@ angular.module('themeaning.directives').directive('meaningLetter', ['$interval',
           fontSwitch = $interval(function() {
             var fontIndex = Math.floor(Math.random() * scope.fonts.length);
             scope.font = scope.fonts[fontIndex];
-          }, interval);
+          }, scope.interval);
         }
 
         // End loop

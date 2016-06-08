@@ -185,6 +185,7 @@ gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('app/**/*.html', gulp.parallel(['templates', 'reload']));
   gulp.watch('app/**/*.js', gulp.parallel(['js', 'reload']));
+  gulp.watch('app/**/*.less', gulp.parallel(['less', 'reload']));
   gulp.watch('app/index.html', gulp.parallel(['inject', 'reload']));
 });
 
