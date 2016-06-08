@@ -121,10 +121,11 @@ STYLES
 // Build less styles of the portal
 gulp.task('less', function() {
   'use strict';
-  return gulp.src('app/resources/styles/less/*.less')
+  return gulp.src('app/resources/styles/less/**/*.less')
     .pipe(less({
       paths: [path.join(__dirname, './app/resources/styles')]
     }))
+    .pipe(concat('the-meaning.css'))
     .pipe(gulp.dest('./build/resources/styles'))
     .pipe(livereload());
 });
