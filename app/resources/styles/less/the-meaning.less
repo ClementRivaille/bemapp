@@ -1,11 +1,12 @@
 .meaning {
 	padding: 20%;
 	background-color: black;
+	height: 100%;
 	&--rainbowbg {
 		animation: rainbowbg 7s infinite;
 	}
 	&__text {
-		font-size: 5em;
+		font-size: 6em;
 		font-weight: bold;
 		color: white;
 		text-align: center;
@@ -56,12 +57,16 @@
 	}
 }
 
+html, body, .portal-ui-view {
+	height: 100%;
+}
+
 @keyframes rainbowbg {
   0%   { background-color: darkblue; }
   20%   { background-color: darkgreen; }
-  40%   { background-color: purple; }
+  40%   { background-color: indigo; }
   60%   { background-color: darkred; }
-  80%   { background-color: orange; }
+  80%   { background-color: lightslategray; }
   100% { background-color: darkblue; }
 }
 
