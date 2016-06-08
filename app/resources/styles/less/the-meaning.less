@@ -1,6 +1,9 @@
 .meaning {
 	padding: 20%;
 	background-color: black;
+	&--rainbowbg {
+		animation: rainbowbg 7s infinite;
+	}
 	&__text {
 		font-size: 5em;
 		font-weight: bold;
@@ -51,6 +54,15 @@
 			font-family: "Sensation", sans-serif;
 		}
 	}
+}
+
+@keyframes rainbowbg {
+  0%   { background-color: darkblue; }
+  20%   { background-color: darkgreen; }
+  40%   { background-color: purple; }
+  60%   { background-color: darkred; }
+  80%   { background-color: orange; }
+  100% { background-color: darkblue; }
 }
 
 @font-face {
