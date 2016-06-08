@@ -4,18 +4,8 @@ app.config(['$stateProvider', function($stateProvider) {
   'use strict';
 
   $stateProvider.state('main', {
-    url: '/',
+    url: '/?norainbow?text',
     templateUrl: 'src/main.html',
     controller: 'mainCtrl'
   });
 }]);
-
-app.controller('mainCtrl', ['$scope', '$log',
-  function($scope, $log) {
-    'use strict';
-
-    $scope.log = function(msg) {
-      $log.info(msg);
-    };
-  }
-]);

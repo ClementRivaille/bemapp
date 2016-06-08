@@ -1,5 +1,5 @@
-angular.module('themeaning.directives').directive('meaningLetter', ['$interval',
-  function($interval) {
+angular.module('themeaning.directives').directive('meaningLetter', ['$interval', '$sce',
+  function($interval, $sce) {
     return {
       restric: 'EA',
       replace: 'true',
@@ -11,6 +11,12 @@ angular.module('themeaning.directives').directive('meaningLetter', ['$interval',
         interval: '=?'
       },
       link: function(scope, element) {
+        // Ensure spaces are displayed
+        if (scope.letter === ' ') {
+          scope.letter = '&nbsp;';
+        }
+        scope.letter = $sce.trustAsHtml(scope.letter);
+
         var fontSwitch;
         if (scope.fonts && scope.fonts.length > 0) {
           fontSwitch = $interval(function() {
