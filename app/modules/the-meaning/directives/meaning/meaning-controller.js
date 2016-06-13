@@ -8,7 +8,7 @@ angular.module('themeaning.directives').directive('meaning', [
       scope: {
         text: '=',
         interval: '=?',
-        rainbow: '='
+        rainbow: '=?'
       },
       link: function(scope, element) {
         // default value

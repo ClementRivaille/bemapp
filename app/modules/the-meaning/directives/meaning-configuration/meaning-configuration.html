@@ -1,0 +1,30 @@
+<div class="meaning-configuration">
+  <div class="meaning-configuration__open" ng-class="{'meaning-configuration__open--hide':!opened, 'meaning-configuration__open--show':opened}">
+    <a ng-click="opened=!opened">Configuration</a>
+  </div>
+  <div class="row meaning-configuration__settings" ng-class="{'meaning-configuration__settings--hide':!opened, 'meaning-configuration__settings--show':opened}">
+    <form class="form-inline">
+      <!-- Interval -->
+      <div class="col-md-4 form-group meaning-configuration__input">
+        <label>Interval</label>
+        <input class="form-control" type="range" min="100" max="1500" ng-model="configuration.interval"/>
+        <span>{{configuration.interval}}</span>
+      </div>
+      <!-- Text -->
+      <div class="col-md-4 form-group meaning-configuration__input">
+        <label>Text</label>
+        <input class="form-control" type="text" ng-model="configuration.text"/>
+      </div>
+      <!-- Rainbow -->
+      <div class="col-md-2 form-group meaning-configuration__input">
+        <label>Disable background &nbsp;
+          <input type="checkbox" ng-model="configuration.rainbow" ng-true-value="false" ng-false-value="true"/>
+        </label>
+      </div>
+    </form>
+    <!-- Export Url -->
+    <div class="col-md-2" ng-if="validate">
+      <button class="btn btn-primary" ng-click="validate()">Go!</button>
+    </div>
+  </div>
+</div>

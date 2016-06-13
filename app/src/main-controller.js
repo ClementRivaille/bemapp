@@ -1,13 +1,23 @@
-angular.module('themeaning').controller('mainCtrl', ['$scope', '$stateParams', '$log',
-  function($scope, $stateParams, $log) {
+angular.module('themeaning').controller('mainCtrl', ['$scope', '$stateParams', '$state', '$log',
+  function($scope, $stateParams, $state, $log) {
     'use strict';
 
     $scope.log = function(msg) {
       $log.info(msg);
     };
 
-    $scope.rainbow = !$stateParams.norainbow;
-    $scope.text = $stateParams.text || 'THE MEANING';
-    $scope.interval = 200;
+    $scope.configuration = {
+      rainbow: !$stateParams.norainbow || $stateParams.norainbow === 'false',
+      text: $stateParams.text || 'THE MEANING',
+      interval: $stateParams.interval || 200
+    };
+
+    $scope.goToPage = function() {
+      $state.go('main', {
+        norainbow: !$scope.configuration.rainbow,
+        text: $scope.configuration.text,
+        interval: $scope.configuration.interval
+      });
+    };
   }
 ]);
