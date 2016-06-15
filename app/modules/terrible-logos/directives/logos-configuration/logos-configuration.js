@@ -1,10 +1,10 @@
-angular.module('themeaning.directives').directive('meaningConfiguration', [
+angular.module('terriblelogos.directives').directive('logosConfiguration', [
   function() {
     return {
       restric: 'EA',
       replace: 'true',
       transclude: false,
-      templateUrl: 'modules/the-meaning/directives/meaning-configuration/meaning-configuration.html',
+      templateUrl: 'modules/terrible-logos/directives/logos-configuration/logos-configuration.html',
       scope: {
         configuration: '=',
         validate: '&',

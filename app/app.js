@@ -1,4 +1,4 @@
-var app = angular.module('themeaning', ['ui.router', 'themeaning.directives', 'themeaning.services', 'themeaning.templates']);
+var app = angular.module('terriblelogos', ['ui.router', 'terriblelogos.directives', 'terriblelogos.services', 'terriblelogos.templates']);
 
 app.config(['$stateProvider', function($stateProvider) {
   'use strict';

@@ -1,8 +1,8 @@
 {
-  "name": "the-meaning",
+  "name": "terrible-logos",
   "version": "0.0.1",
   "description": "BEM experimentation module",
-  "main": "dist/the-meaning.js",
+  "main": "dist/terrible-logos.js",
   "author": "rivaille-c",
   "dependencies": {
     "cibuild-utils": "^0.2.1",

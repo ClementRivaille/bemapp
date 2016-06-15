@@ -1,2 +1,2 @@
-angular.module('themeaning').controller('appController', [function() {
+angular.module('terriblelogos').controller('appController', [function() {
 }]);

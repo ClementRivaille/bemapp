@@ -1,10 +1,10 @@
-angular.module('themeaning.directives').directive('meaningText', [
+angular.module('terriblelogos.directives').directive('logosDisplayText', [
   function() {
     return {
       restric: 'EA',
       replace: 'true',
       transclude: false,
-      templateUrl: 'modules/the-meaning/directives/meaning/text/meaning__text.html',
+      templateUrl: 'modules/terrible-logos/directives/logos-display/text/logos-display__text.html',
       scope: {
         text: '=',
         fonts: '=',

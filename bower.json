@@ -1,6 +1,6 @@
 {
-  "name": "the-meaning",
-  "main": "dist/the-meaning.js",
+  "name": "terrible-logos",
+  "main": "dist/terrible-logos.js",
   "version": "0.0.1",
   "authors": [
     "rivaille-c <rivaille-c@mgdis.fr>"

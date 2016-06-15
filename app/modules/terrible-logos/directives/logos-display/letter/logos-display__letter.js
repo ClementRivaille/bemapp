@@ -1,10 +1,10 @@
-angular.module('themeaning.directives').directive('meaningLetter', ['$interval', '$sce',
+angular.module('terriblelogos.directives').directive('logosDisplayLetter', ['$interval', '$sce',
   function($interval, $sce) {
     return {
       restric: 'EA',
       replace: 'true',
       transclude: false,
-      templateUrl: 'modules/the-meaning/directives/meaning/letter/meaning__letter.html',
+      templateUrl: 'modules/terrible-logos/directives/logos-display/letter/logos-display__letter.html',
       scope: {
         letter: '=',
         fonts: '=',

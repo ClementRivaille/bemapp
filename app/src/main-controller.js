@@ -1,4 +1,4 @@
-angular.module('themeaning').controller('mainCtrl', ['$scope', '$stateParams', '$state', '$log',
+angular.module('terriblelogos').controller('mainCtrl', ['$scope', '$stateParams', '$state', '$log',
   function($scope, $stateParams, $state, $log) {
     'use strict';
 
@@ -8,7 +8,7 @@ angular.module('themeaning').controller('mainCtrl', ['$scope', '$stateParams', '
 
     $scope.configuration = {
       rainbow: !$stateParams.norainbow || $stateParams.norainbow === 'false',
-      text: $stateParams.text || 'THE MEANING',
+      text: $stateParams.text || 'TERRIBLE LOGOS',
       interval: $stateParams.interval || 200
     };
     $scope.editableConfig = angular.copy($scope.configuration);

@@ -22,7 +22,7 @@ var less = require('gulp-less');
 var directivesPaths = ['app/modules/**/directives.js', 'app/modules/**/directives/**/*.js'];
 var servicesPaths = ['app/modules/**/services.js', 'modules/**/services/**/*.js'];
 // var filtersPaths = ['app/modules/common/filters.js', 'app/modules/common/filters/**/*.js'];
-var theMeaningPaths = _.union(['app/app.js', 'app/src/**/*.js'], directivesPaths, servicesPaths);
+var appPaths = _.union(['app/app.js', 'app/src/**/*.js'], directivesPaths, servicesPaths);
 
 /* -------------------
 CLEAN AND LINT
@@ -34,7 +34,7 @@ gulp.task('clean', function() {
 
 // Check JS files code quality
 gulp.task('lint', function() {
-  return gulp.src(theMeaningPaths)
+  return gulp.src(appPaths)
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'));
@@ -50,7 +50,7 @@ gulp.task('templates-app', function() {
   return gulp.src(['app/**/*.html'])
     .pipe(templateCache('templates.js', {
       root: '',
-      module: 'themeaning.templates',
+      module: 'terriblelogos.templates',
       standalone: true
     }))
     .pipe(gulp.dest('./build'))
@@ -80,12 +80,12 @@ JAVASCRIPT SOURCES
 // Concat sources
 gulp.task('js-app', function() {
   'use strict';
-  return gulp.src(theMeaningPaths, {
+  return gulp.src(appPaths, {
       base: '.',
       allowEmpty: true
     })
     .pipe(plumber())
-    .pipe(concat('the-meaning.js'))
+    .pipe(concat('terrible-logos.js'))
     .pipe(gulp.dest('./build'))
     .pipe(livereload());
 });
@@ -103,7 +103,7 @@ gulp.task('js', gulp.parallel('js-app', 'js-vendor'));
 
 // Inject JS scripts tags in HTML pages
 gulp.task('inject', function() {
-  var sources = gulp.src(['build/vendor.js', 'build/the-meaning.js', 'build/templates.js'], {
+  var sources = gulp.src(['build/vendor.js', 'build/terrible-logos.js', 'build/templates.js'], {
     read: false
   });
   return gulp.src('app/index.html')
@@ -125,7 +125,7 @@ gulp.task('less', function() {
     .pipe(less({
       paths: [path.join(__dirname, './app/resources/styles')]
     }))
-    .pipe(concat('the-meaning.css'))
+    .pipe(concat('terrible-logos.css'))
     .pipe(gulp.dest('./build/resources/styles'))
     .pipe(livereload());
 });
@@ -212,10 +212,10 @@ gulp.task('default', gulp.series([
 
 // Copy the built files that contain the core of app
 gulp.task('dist-copy', function() {
-  gulp.src(directivesPaths).pipe(concat('the-meaning-directives.js')).pipe(gulp.dest('dist/'));
-  gulp.src(servicesPaths).pipe(concat('the-meaning-services.js')).pipe(gulp.dest('dist/'));
-  // gulp.src(filtersPaths).pipe(concat('the-meaning-filters.js')).pipe(gulp.dest('dist/'));
-  gulp.src(theMeaningPaths).pipe(concat('the-meaning.js')).pipe(gulp.dest('dist/'));
+  gulp.src(directivesPaths).pipe(concat('terrible-logos-directives.js')).pipe(gulp.dest('dist/'));
+  gulp.src(servicesPaths).pipe(concat('terrible-logos-services.js')).pipe(gulp.dest('dist/'));
+  // gulp.src(filtersPaths).pipe(concat('terrible-logos-filters.js')).pipe(gulp.dest('dist/'));
+  gulp.src(appPaths).pipe(concat('terrible-logos.js')).pipe(gulp.dest('dist/'));
 
   gulp.src(['app/resources/**/*']).pipe(gulp.dest('dist/resources'));
   cibuild.writeFileVersion('./dist/version.json');

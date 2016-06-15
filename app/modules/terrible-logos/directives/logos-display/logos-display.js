@@ -1,10 +1,10 @@
-angular.module('themeaning.directives').directive('meaning', [
+angular.module('terriblelogos.directives').directive('logosDisplay', [
   function() {
     return {
       restric: 'EA',
       replace: 'true',
       transclude: false,
-      templateUrl: 'modules/the-meaning/directives/meaning/meaning.html',
+      templateUrl: 'modules/terrible-logos/directives/logos-display/logos-display.html',
       scope: {
         text: '=',
         interval: '=?',
@@ -13,7 +13,7 @@ angular.module('themeaning.directives').directive('meaning', [
       link: function(scope, element) {
         // default value
         scope.interval = scope.interval || 300;
-        scope.text = scope.text || 'The Meaning';
+        scope.text = scope.text || 'Terrible logos';
 
         // Retrieve fonts from service
         scope.fonts = ['league-gothic', 'amaticsc', 'caviar-dreams', 'fff-tusj', 'ostrich'];
