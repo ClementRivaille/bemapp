@@ -11,12 +11,13 @@ angular.module('themeaning').controller('mainCtrl', ['$scope', '$stateParams', '
       text: $stateParams.text || 'THE MEANING',
       interval: $stateParams.interval || 200
     };
+    $scope.editableConfig = angular.copy($scope.configuration);
 
     $scope.goToPage = function() {
       $state.go('main', {
-        norainbow: !$scope.configuration.rainbow,
-        text: $scope.configuration.text,
-        interval: $scope.configuration.interval
+        norainbow: !$scope.editableConfig.rainbow,
+        text: $scope.editableConfig.text,
+        interval: $scope.editableConfig.interval
       });
     };
   }
