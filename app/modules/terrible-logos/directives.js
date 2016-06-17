@@ -1,1 +1,1 @@
-angular.module('terriblelogos.directives', []);
+angular.module('terriblelogos.directives', ['bem']);

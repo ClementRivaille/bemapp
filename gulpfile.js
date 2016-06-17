@@ -21,8 +21,9 @@ var less = require('gulp-less');
  ------------------ */
 var directivesPaths = ['app/modules/**/directives.js', 'app/modules/**/directives/**/*.js'];
 var servicesPaths = ['app/modules/**/services.js', 'modules/**/services/**/*.js'];
+var modulesPaths= ['app/modules/bem/bem.js'];
 // var filtersPaths = ['app/modules/common/filters.js', 'app/modules/common/filters/**/*.js'];
-var appPaths = _.union(['app/app.js', 'app/src/**/*.js'], directivesPaths, servicesPaths);
+var appPaths = _.union(['app/app.js', 'app/src/**/*.js'], modulesPaths, directivesPaths, servicesPaths);
 
 /* -------------------
 CLEAN AND LINT

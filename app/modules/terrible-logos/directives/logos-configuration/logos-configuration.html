@@ -1,29 +1,29 @@
-<div class="logos-configuration">
-  <div class="logos-configuration__open" ng-class="{'logos-configuration__open--hide':!opened, 'logos-configuration__open--show':opened}">
+<div bem-block="logos-configuration">
+  <div bem-element="open" bem-modifiers-if="{'hide':!opened, 'show':opened}">
     <a ng-click="opened=!opened">Configuration</a>
   </div>
-  <div class="row logos-configuration__settings" ng-class="{'logos-configuration__settings--hide':!opened, 'logos-configuration__settings--show':opened}">
+  <div class="row" bem-element="settings" bem-modifiers-if="{'hide':!opened, 'show':opened}">
     <form class="form-inline">
       <!-- Interval -->
-      <div class="col-md-4 form-group logos-configuration__input">
+      <div class="col-sm-4 form-group" bem-element="input">
         <label>Interval</label>
         <input class="form-control" type="range" min="100" max="1500" ng-model="configuration.interval"/>
         <span>{{configuration.interval}}</span>
       </div>
       <!-- Text -->
-      <div class="col-md-4 form-group logos-configuration__input">
+      <div class="col-sm-4 form-group" bem-element="input">
         <label>Text</label>
         <input class="form-control" type="text" ng-model="configuration.text"/>
       </div>
       <!-- Rainbow -->
-      <div class="col-md-2 form-group logos-configuration__input">
+      <div class="col-sm-2 form-group" bem-element="input">
         <label>Disable background &nbsp;
           <input type="checkbox" ng-model="configuration.rainbow" ng-true-value="false" ng-false-value="true"/>
         </label>
       </div>
     </form>
     <!-- Export Url -->
-    <div class="col-md-2" ng-if="validate">
+    <div class="col-sm-2" ng-if="validate">
       <button class="btn btn-primary" ng-click="validate()">Go!</button>
     </div>
   </div>
