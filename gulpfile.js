@@ -213,18 +213,17 @@ gulp.task('default', gulp.series([
 
 // Copy the built files that contain the core of app
 gulp.task('dist-copy', function() {
-  gulp.src(directivesPaths).pipe(concat('terrible-logos-directives.js')).pipe(gulp.dest('dist/'));
-  gulp.src(servicesPaths).pipe(concat('terrible-logos-services.js')).pipe(gulp.dest('dist/'));
-  // gulp.src(filtersPaths).pipe(concat('terrible-logos-filters.js')).pipe(gulp.dest('dist/'));
-  gulp.src(appPaths).pipe(concat('terrible-logos.js')).pipe(gulp.dest('dist/'));
-
-  gulp.src(['app/resources/**/*']).pipe(gulp.dest('dist/resources'));
   cibuild.writeFileVersion('./dist/version.json');
+  return gulp.src(['build/**/*']).pipe(gulp.dest('dist'));
 });
 gulp.task('dist', gulp.series([
   'lint',
+  'clean',
   'templates',
+  'js',
+  'style',
+  'inject',
   'dist-copy']));
 // Copy the built files that contain the core of the form module
-gulp.task('fast-dist', gulp.series(['templates', 'dist']));
+gulp.task('fast-dist', gulp.series(['templates', 'js', 'style', 'inject', 'dist']));
 gulp.task('cibuild', gulp.series(['dist']));
