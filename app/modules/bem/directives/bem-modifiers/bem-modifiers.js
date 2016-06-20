@@ -6,37 +6,43 @@ angular.module('bem.directives').directive('bemModifiers', [
   function() {
     return {
       restric: 'A',
-      require: ['^bemBlock', '?bemElement'],
-      scope: {
-        bemModifiers: '='
-      },
+      require: ['bemModifiers', '^bemBlock', '?bemElement'],
       link: function(scope, element, attrs, ctrls) {
-        var blockCtrl = ctrls[0];
-        var elementCtrl = ctrls[1] ? ctrls[1] : undefined;
+        // Share block and element controllers with self controller
+        var selfCtrl = ctrls[0];
+        selfCtrl.blockCtrl = ctrls[1];
+        selfCtrl.elementCtrl = ctrls[2] ? ctrls[2] : undefined;
+      },
+      controller: ['$scope', '$attrs', '$element',
+        function($scope, $attrs, $element) {
+          var modController = this;
 
-        // Store applied modifiers
-        var appliedClasses = [];
+          // Store applied modifiers
+          var appliedClasses = [];
 
-        scope.$watch('bemModifiers', function() {
-          // Remove every modifiers first
-          _.each(appliedClasses, function(modClass) {
-            element.removeClass(modClass);
-          });
-          appliedClasses.splice(0, appliedClasses.length);
-          
-          // Write classes
-          _.each(scope.bemModifiers, function(modifier) {
-            var modClass = blockCtrl.getBlockName();
-            if (elementCtrl) {
-              modClass += '__' + elementCtrl.getElementName();
-            }
-            modClass += '--' + modifier;
+          $scope.$watch(angular.bind(modController, function() {
+            return $scope.$eval($attrs.bemModifiers);
+          }), function(modifiers) {
+            // Remove every modifiers first
+            _.each(appliedClasses, function(modClass) {
+              $element.removeClass(modClass);
+            });
+            appliedClasses.splice(0, appliedClasses.length);
+            
+            // Write classes
+            _.each(modifiers, function(modifier) {
+              var modClass = modController.blockCtrl.getBlockName();
+              if (modController.elementCtrl) {
+                modClass += '__' + modController.elementCtrl.getElementName();
+              }
+              modClass += '--' + modifier;
 
-            element.addClass(modClass);
-            appliedClasses.push(modClass);
-          });
-        }, true);
-      }
+              $element.addClass(modClass);
+              appliedClasses.push(modClass);
+            });
+          }, true);
+        }
+      ]
     };
   }
 ]);

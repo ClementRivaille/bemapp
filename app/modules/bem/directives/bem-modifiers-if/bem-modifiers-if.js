@@ -5,35 +5,42 @@
 angular.module('bem.directives').directive('bemModifiersIf', [
   function() {
     return {
-      restric: 'A',
-      require: ['^bemBlock', '?bemElement'],
-      scope: {
-        bemModifiersIf: '='
-      },
+      restrict: 'A',
+      require: ['bemModifiersIf', '^bemBlock', '?bemElement'],
       link: function(scope, element, attrs, ctrls) {
-        var blockCtrl = ctrls[0];
-        var elementCtrl = ctrls[1] ? ctrls[1] : undefined;
+        // Share block and element controllers with self controller
+        var selfCtrl = ctrls[0];
+        selfCtrl.blockCtrl = ctrls[1];
+        selfCtrl.elementCtrl = ctrls[2] ? ctrls[2] : undefined;
+      },
+      controller: ['$scope', '$attrs', '$element',
+        function($scope, $attrs, $element) {
+          var modController = this;
 
-        scope.$watch('bemModifiersIf', function() {
-          // Write classes according to conditions
-          _.each(_.keys(scope.bemModifiersIf), function(modifier) {
-            // generate class
-            var modClass = blockCtrl.getBlockName();
-            if (elementCtrl) {
-              modClass += '__' + elementCtrl.getElementName();
-            }
-            modClass += '--' + modifier;
+          // Add a watcher on modifers binded to this controller
+          $scope.$watch(angular.bind(modController, function() {
+            return $scope.$eval($attrs.bemModifiersIf);
+          }), function(modifiers) {
+            // Write classes according to conditions
+            _.each(_.keys(modifiers), function(modifier) {
+              // generate class
+              var modClass = modController.blockCtrl.getBlockName();
+              if (modController.elementCtrl) {
+                modClass += '__' + modController.elementCtrl.getElementName();
+              }
+              modClass += '--' + modifier;
 
-            // Add or remove it
-            if (scope.bemModifiersIf[modifier]) {
-              element.addClass(modClass);
-            }
-            else {
-              element.removeClass(modClass);
-            }
-          });
-        }, true);
-      }
+              // Add or remove it
+              if (modifiers[modifier]) {
+                $element.addClass(modClass);
+              }
+              else {
+                $element.removeClass(modClass);
+              }
+            });
+          }, true);
+        }
+      ]
     };
   }
 ]);
