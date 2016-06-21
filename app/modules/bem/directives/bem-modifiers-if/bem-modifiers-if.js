@@ -17,7 +17,7 @@ angular.module('bem.directives').directive('bemModifiersIf', [
         function($scope, $attrs, $element) {
           var modController = this;
 
-          // Add a watcher on modifers binded to this controller
+          // Add a watcher on modifers bound to this controller
           $scope.$watch(angular.bind(modController, function() {
             return $scope.$eval($attrs.bemModifiersIf);
           }), function(modifiers) {

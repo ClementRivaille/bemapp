@@ -1,5 +1,5 @@
-angular.module('terriblelogos').controller('mainCtrl', ['$scope', '$stateParams', '$state', '$log',
-  function($scope, $stateParams, $state, $log) {
+angular.module('terriblelogos').controller('mainCtrl', ['$scope', '$stateParams', '$state', '$log', 'fontsService',
+  function($scope, $stateParams, $state, $log, fontsService) {
     'use strict';
 
     $scope.log = function(msg) {
@@ -13,6 +13,7 @@ angular.module('terriblelogos').controller('mainCtrl', ['$scope', '$stateParams'
     };
     $scope.editableConfig = angular.copy($scope.configuration);
 
+    $scope.listFonts = fontsService.listFonts();
     $scope.goToPage = function() {
       $state.go('main', {
         norainbow: !$scope.editableConfig.rainbow,

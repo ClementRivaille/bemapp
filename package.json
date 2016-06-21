@@ -1,6 +1,6 @@
 {
   "name": "terrible-logos",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "BEM experimentation module",
   "main": "dist/terrible-logos.js",
   "author": "rivaille-c",

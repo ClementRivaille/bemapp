@@ -19,7 +19,7 @@ angular.module('bem.directives').directive('bemModifiers', [
 
           // Store applied modifiers
           var appliedClasses = [];
-
+          // Add a watcher on modifers bound to this controller
           $scope.$watch(angular.bind(modController, function() {
             return $scope.$eval($attrs.bemModifiers);
           }), function(modifiers) {
