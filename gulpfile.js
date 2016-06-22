@@ -9,7 +9,6 @@ var openBrowser = require('gulp-open');
 var del = require('del');
 var _ = require('lodash');
 var inject = require('gulp-inject');
-var cibuild = require('cibuild-utils');
 var bowerFiles = require('main-bower-files');
 var livereload = require('gulp-livereload');
 var path = require('path');
@@ -213,7 +212,6 @@ gulp.task('default', gulp.series([
 
 // Copy the built files that contain the core of app
 gulp.task('dist-copy', function() {
-  cibuild.writeFileVersion('./dist/version.json');
   return gulp.src(['build/**/*']).pipe(gulp.dest('dist'));
 });
 gulp.task('dist', gulp.series([
@@ -226,4 +224,3 @@ gulp.task('dist', gulp.series([
   'dist-copy']));
 // Copy the built files that contain the core of the form module
 gulp.task('fast-dist', gulp.series(['templates', 'js', 'style', 'inject', 'dist']));
-gulp.task('cibuild', gulp.series(['dist']));
