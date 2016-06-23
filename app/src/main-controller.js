@@ -13,7 +13,6 @@ angular.module('terriblelogos').controller('mainCtrl', ['$scope', '$stateParams'
     };
     $scope.editableConfig = angular.copy($scope.configuration);
 
-    $scope.listFonts = fontsService.listFonts();
     $scope.goToPage = function() {
       $state.go('main', {
         norainbow: !$scope.editableConfig.rainbow,

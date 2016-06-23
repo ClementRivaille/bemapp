@@ -1,5 +1,5 @@
-angular.module('terriblelogos.directives').directive('logosDisplay', [
-  function() {
+angular.module('terriblelogos.directives').directive('logosDisplay', ['fontsService',
+  function(fontsService) {
     return {
       restric: 'EA',
       replace: 'true',
@@ -16,7 +16,7 @@ angular.module('terriblelogos.directives').directive('logosDisplay', [
         scope.text = scope.text || 'Terrible logos';
 
         // Retrieve fonts from service
-        scope.fonts = ['league-gothic', 'amaticsc', 'caviar-dreams', 'fff-tusj', 'ostrich'];
+        scope.fonts = fontsService.listFonts();
       }
     };
   }

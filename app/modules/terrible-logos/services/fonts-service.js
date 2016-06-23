@@ -2,20 +2,22 @@ angular.module('terriblelogos.services').factory('fontsService', [
 
   function() {
     var listFonts = [
-      'league',
+      'league-gothic',
       'amaticsc',
-      'caviar',
-      'fff',
+      'caviar-dreams',
+      'fff-tusj',
       'ostrich',
-      'season',
       'bebas',
       'chunkfive',
-      'good',
+      'good-dog',
       'pacifico',
       'walkway',
-      'capture',
+      'capture-it',
       'exo',
-      'sensation'
+      'sansation',
+      'ataristocrat',
+      'ldcblackround',
+      'sticker'
     ];
 
     return {
