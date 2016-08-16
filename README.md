@@ -4,6 +4,8 @@ Generate bad logos by switching font for each letter of a given text. A configur
 
 This is a simple experimentation with the BEM methodology, also used as a tutorial.
 
+[Demo](http://clementrivaille.github.io/terrible-logos/#/)
+
 ## Install
 
 ```
