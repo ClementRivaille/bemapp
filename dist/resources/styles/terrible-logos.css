@@ -1,0 +1,199 @@
+@keyframes rainbowbg {
+  0% {
+    background-color: darkblue;
+  }
+  20% {
+    background-color: darkgreen;
+  }
+  40% {
+    background-color: indigo;
+  }
+  60% {
+    background-color: darkred;
+  }
+  80% {
+    background-color: lightslategray;
+  }
+  100% {
+    background-color: darkblue;
+  }
+}
+
+html,
+body,
+.portal-ui-view,
+#root {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'League Gothic';
+  src: url('../fonts/LeagueGothic-regular.otf');
+}
+@font-face {
+  font-family: 'AmaticSC';
+  src: url('../fonts/AmaticSC-Regular.ttf');
+}
+@font-face {
+  font-family: 'Caviar Dreams';
+  src: url('../fonts/CaviarDreams.ttf');
+}
+@font-face {
+  font-family: 'FFF Tusj';
+  src: url('../fonts/FFF_Tusj.ttf');
+}
+@font-face {
+  font-family: 'Ostrich';
+  src: url('../fonts/ostrich-regular.ttf');
+}
+@font-face {
+  font-family: 'BEBAS';
+  src: url('../fonts/BEBAS___.ttf');
+}
+@font-face {
+  font-family: 'Chunkfive';
+  src: url('../fonts/Chunkfive.otf');
+}
+@font-face {
+  font-family: 'Good Dog';
+  src: url('../fonts/GoodDog.otf');
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('../fonts/Pacifico.ttf');
+}
+@font-face {
+  font-family: 'Walkway';
+  src: url('../fonts/Walkway_Black.ttf');
+}
+@font-face {
+  font-family: 'Capture it';
+  src: url('../fonts/Capture_it.ttf');
+}
+@font-face {
+  font-family: 'Exo';
+  src: url('../fonts/Exo-Medium.otf');
+}
+@font-face {
+  font-family: 'Sansation';
+  src: url('../fonts/Sansation-Regular.ttf');
+}
+@font-face {
+  font-family: 'ATARISTOCRAT';
+  src: url('../fonts/ATARISTOCRAT.ttf');
+}
+@font-face {
+  font-family: 'ldcBlackRound';
+  src: url('../fonts/ldcBlackRound.ttf');
+}
+@font-face {
+  font-family: 'Sticker';
+  src: url('../fonts/Sticker.ttf');
+}
+
+.logos-configuration {
+  margin-left: 10%;
+  width: 80%;
+  margin-right: 10%;
+  position: absolute;
+  bottom: 0;
+}
+.logos-configuration__settings {
+  background-color: darkslategrey;
+  padding: 5px;
+  color: lightgray;
+  transition: transform 200ms ease-in-out;
+  transform-origin: bottom;
+  border-radius: 10px 10px 0 0;
+  max-height: 45px;
+}
+.logos-configuration__settings--hide {
+  transform: scaleY(0);
+}
+.logos-configuration__settings--open {
+  transform: scaleY(1);
+}
+.logos-configuration__open {
+  width: 9em;
+  border-radius: 25px 25px 0 0;
+  background-color: darkslategrey;
+  padding-left: 15px;
+  transition: transform 200ms ease-in-out;
+}
+.logos-configuration__open a {
+  color: lightgray;
+  font-weight: bold;
+  cursor: pointer;
+}
+.logos-configuration__open a:hover {
+  text-decoration: none;
+}
+.logos-configuration__open--hide {
+  transform: translateY(45px);
+}
+.logos-configuration__open--open {
+  transform: translateY(0);
+}
+
+.logos-display {
+  padding: 20%;
+  background-color: black;
+  height: 100%;
+}
+.logos-display--rainbowbg {
+  animation: rainbowbg 7s infinite;
+}
+.logos-display__text {
+  font-size: 6em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.logos-display__letter--league-gothic {
+  font-family: "League Gothic", sans-serif;
+}
+.logos-display__letter--amaticsc {
+  font-family: "AmaticSC", sans-serif;
+}
+.logos-display__letter--caviar-dreams {
+  font-family: "Caviar Dreams", sans-serif;
+}
+.logos-display__letter--fff-tusj {
+  font-family: "FFF Tusj", sans-serif;
+}
+.logos-display__letter--ostrich {
+  font-family: "Ostrich", sans-serif;
+}
+.logos-display__letter--bebas {
+  font-family: "BEBAS", sans-serif;
+}
+.logos-display__letter--chunkfive {
+  font-family: "Chunkfive", sans-serif;
+}
+.logos-display__letter--good-dog {
+  font-family: "Good Dog", sans-serif;
+}
+.logos-display__letter--pacifico {
+  font-family: "Pacifico", sans-serif;
+}
+.logos-display__letter--walkway {
+  font-family: "Walkway", sans-serif;
+}
+.logos-display__letter--capture-it {
+  font-family: "Capture it", sans-serif;
+}
+.logos-display__letter--exo {
+  font-family: "Exo", sans-serif;
+}
+.logos-display__letter--sansation {
+  font-family: "Sansation", sans-serif;
+}
+.logos-display__letter--ataristocrat {
+  font-family: "ATARISTOCRAT", sans-serif;
+}
+.logos-display__letter--ldcblackround {
+  font-family: "ldcBlackRound", sans-serif;
+}
+.logos-display__letter--sticker {
+  font-family: "Sticker", sans-serif;
+}
